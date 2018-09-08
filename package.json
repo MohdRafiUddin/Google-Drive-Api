@@ -11,8 +11,12 @@
   "author": "Mohd Rafi Uddin",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.3",
     "passport": "^0.4.0",
     "passport-google-drive": "0.0.6"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.4"
   }
 }
