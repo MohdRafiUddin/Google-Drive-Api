@@ -14,7 +14,16 @@ passport.use(
        scope : 'https://www.googleapis.com/auth/drive.metadata.readonly'
       },
       (accessToken, refreshToken, profile, done) => {
-             console.log(accessToken);
-       }
-     )
+             User.findOne({driveID : profile.id})
+             .then(existingUser => {
+               if(existingUser){
+                  done(null, existingUser);
+                }else{
+                 new User({driveID : profile.id})
+                 .save()
+                 .then(user => done(null, user));
+               }
+             });
+          }
+       )
    );
