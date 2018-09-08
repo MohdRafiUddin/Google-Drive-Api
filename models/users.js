@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const {Schema} = mongoose;
 
 const userSchema = new Schema({
-   driveID : string
+   driveID: String
  });
 
-mongoose.model('users', 'userSchema')
+mongoose.model('drive-users', userSchema)

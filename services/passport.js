@@ -1,7 +1,9 @@
 const passport = require('passport');
 const GoogleDriveStrategy = require('passport-google-drive').Strategy;
-
+const mongoose = require('mongoose');
 const Keys = require('../config/keys.js');
+
+const User = mongoose.model('drive-users');
 
 passport.use(
     new GoogleDriveStrategy(
@@ -12,9 +14,7 @@ passport.use(
        scope : 'https://www.googleapis.com/auth/drive.metadata.readonly'
       },
       (accessToken, refreshToken, profile, done) => {
-         console.log(accessToken);
-         console.log(refreshToken);
-         console.log(profile);
+             console.log(accessToken);
        }
      )
    );
