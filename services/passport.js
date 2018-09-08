@@ -17,8 +17,10 @@ passport.use(
              User.findOne({driveID : profile.id})
              .then(existingUser => {
                if(existingUser){
+                 //Already existing user, don't save in the database.
                   done(null, existingUser);
                 }else{
+                  //new user, save user id in the database.
                  new User({driveID : profile.id})
                  .save()
                  .then(user => done(null, user));
