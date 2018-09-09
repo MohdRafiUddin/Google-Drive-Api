@@ -2,8 +2,8 @@ const passport = require('passport');
 const GoogleDriveStrategy = require('passport-google-drive').Strategy;
 const mongoose = require('mongoose');
 const Keys = require('../config/keys.js');
-
 const User = mongoose.model('drive-users');
+const prettyjson = require('prettyjson');
 
 passport.serializeUser( (user, done) => {
     done(null, user.id);
@@ -20,9 +20,10 @@ passport.use(
        clientID: Keys.DRIVE_CLIENT_ID,
        clientSecret: Keys.DRIVE_CLIENT_SECRET,
        callbackURL: '/auth/google-drive/callback',
-       scope : 'https://www.googleapis.com/auth/drive.metadata.readonly'
+       scope : 'https://www.googleapis.com/auth/drive'
       },
       (accessToken, refreshToken, profile, done) => {
+        console.log(prettyjson.render(profile));
              User.findOne({driveID : profile.id})
              .then(existingUser => {
                if(existingUser){
