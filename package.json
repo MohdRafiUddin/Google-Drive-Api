@@ -19,6 +19,7 @@
     "passport-google-drive": "0.0.6"
   },
   "devDependencies": {
-    "nodemon": "^1.18.4"
+    "nodemon": "^1.18.4",
+    "prettyjson": "^1.2.1"
   }
 }
