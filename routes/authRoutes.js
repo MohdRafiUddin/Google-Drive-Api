@@ -7,7 +7,10 @@ module.exports = app => {
 
   app.get(
     '/auth/google-drive/callback',
-     passport.authenticate('google-drive')
+     passport.authenticate('google-drive'),
+     (req, res) => {
+       res.redirect('/Dashboard');
+     }
    );
 
   app.get('/api/current_user', (req, res) => {
@@ -16,6 +19,6 @@ module.exports = app => {
 
   app.get('/api/logout', (req, res) => {
     req.logout();
-    res.send(req.user);
+    res.redirect('/');
   });
  }
