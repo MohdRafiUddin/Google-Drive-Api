@@ -20,10 +20,10 @@ passport.use(
        clientID: Keys.DRIVE_CLIENT_ID,
        clientSecret: Keys.DRIVE_CLIENT_SECRET,
        callbackURL: '/auth/google-drive/callback',
-       scope : 'https://www.googleapis.com/auth/drive'
+       scope : 'https://www.googleapis.com/auth/drive.metadata',
+       access_type: 'offline'
       },
       (accessToken, refreshToken, profile, done) => {
-        console.log(prettyjson.render(profile));
              User.findOne({driveID : profile.id})
              .then(existingUser => {
                if(existingUser){
