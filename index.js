@@ -12,7 +12,7 @@ mongoose.connect(keys.MONGOOSE_URI);
 
 app = express();
 
-app.use(morgan('combined'));
+//app.use(morgan('combined'));
 app.use(bodyParser.json({ type: '*/*' }));
 app.use(
    cookieSession({
@@ -24,7 +24,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 require('./routes/authRoutes')(app);
-
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT);
