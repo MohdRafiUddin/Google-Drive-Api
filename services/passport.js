@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const Keys = require('../config/keys.js');
 const User = mongoose.model('drive-users');
 const prettyjson = require('prettyjson');
+const axios = require('axios');
 
 passport.serializeUser( (user, done) => {
     done(null, user.id);
@@ -31,9 +32,15 @@ passport.use(
                   done(null, existingUser);
                 }else{
                   //new user, save user id in the database.
-                 new User({driveID : profile.id})
+                  axios.get('https://www.googleapis.com/drive/v3/files?access_token='+accessToken)
+                  .then(res => {
+                 new User({
+                   driveID : profile.id,
+                   data: res.data.files
+                   })
                  .save()
                  .then(user => done(null, user));
+                 });
                }
              });
           }
