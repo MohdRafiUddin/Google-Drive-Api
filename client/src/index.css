@@ -1,0 +1,59 @@
+/*default properties*/
+body{
+  font-family: 'Source Sans Pro', sans-serif;
+}
+/*Header*/
+nav {
+  background-color: black;
+}
+.logo span {
+  text-decoration: none;
+}
+.logo img {
+  padding-left: 20px;
+}
+.logo:hover {
+  color: gray;
+}
+.right-items li a {
+  text-decoration: none;
+  font-size: 22px;
+  font-weight: lighter;
+  margin-right: 10px;
+}
+.right-items li a:hover {
+  color: gray;
+}
+/*Home Page or Landing Page*/
+.container-1{
+  height: 610px;
+  background-image: url("https://www.google.com/drive/static/images/home/intro-768.jpg");
+  background-size: cover;
+}
+.container-1-1 {
+    margin: 0 auto;
+    padding: 130px 0;
+    position: relative;
+    text-align: center;
+}
+.container-1-1-1 img{
+  height: 100px;
+  width: 100px;
+}
+.container-1-1-2{
+  margin: 28px 0;
+  font-size: 45px;
+  color: #fff;
+  font-weight: 100;
+  line-height: 1.29;
+}
+.container-1-1-3 a{
+  padding: 18px;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 2px;
+  background: #66a0fd;
+}
+.container-1-1-3 a:hover{
+  background: #4386fc;
+}
