@@ -6,7 +6,7 @@ class Header extends Component {
   renderContent(){
     switch (this.props.auth) {
       case null:
-        return <li>Loading......</li>;
+        return <li><a href="#">Checking Status..</a></li>;
       case false:
         return <li><a href="/auth/google-drive">Login With Google Drive</a></li>;
       default:
@@ -20,10 +20,10 @@ class Header extends Component {
        <div className="nav-wrapper">
          <Link
            to={ this.props.auth ? '/Dashboard' : '/'}
-           className="lefdt brand-logo">
-           Drive Api
+           className="left brand-logo logo">
+           <img src="https://www.gstatic.com/images/branding/googlelogo/1x/googlelogo_light_color_112x36dp.png" /><span>Drive</span>
          </Link>
-         <ul className="right">
+         <ul className="right right-items">
            { this.renderContent() }
          </ul>
        </div>
