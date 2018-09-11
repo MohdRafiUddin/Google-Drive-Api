@@ -13,7 +13,6 @@ class Dashboard extends Component {
   }
 
  render(){
-   console.log(this.props.data);
   return (
     <div>
     <h4>List Of Files</h4>
