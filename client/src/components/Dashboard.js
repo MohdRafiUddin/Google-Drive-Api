@@ -5,18 +5,23 @@ import _ from 'lodash';
 class Dashboard extends Component {
   renderData() {
     return _.map(this.props.data, data => {
-    return ( <li className="list-group-item" key={data.id}>
+    return (
+      <div>
+        <li className="list-group-item" key={data.id}>
         {data.name}
-      </li>
+        <a href="/" target="_blank">Click Here to view in Drive</a>
+        <a href="/" target="_blank">Download</a>
+        </li>
+      </div>
       );
     });
   }
 
  render(){
   return (
-    <div>
+    <div className="dash-container">
     <h4>List Of Files</h4>
-     <ul className="list-group">
+     <ul className="list-group col-md-10">
        {this.renderData()}
      </ul>
     </div>
