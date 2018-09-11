@@ -5,7 +5,7 @@ import _ from 'lodash';
 class Dashboard extends Component {
   renderData() {
     return _.map(this.props.data, data => {
-    return ( <li key={data.id}>
+    return ( <li className="list-group-item" key={data.id}>
         {data.name}
       </li>
       );
@@ -13,9 +13,11 @@ class Dashboard extends Component {
   }
 
  render(){
+   console.log(this.props.data);
   return (
     <div>
-     <ul>
+    <h4>List Of Files</h4>
+     <ul className="list-group">
        {this.renderData()}
      </ul>
     </div>
