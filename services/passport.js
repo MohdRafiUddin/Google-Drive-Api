@@ -25,7 +25,6 @@ passport.use(
        access_type: 'offline'
       },
       (accessToken, refreshToken, profile, done) => {
-        console.log(profile);
              User.findOne({driveID : profile.id})
              .then(existingUser => {
                if(existingUser){
