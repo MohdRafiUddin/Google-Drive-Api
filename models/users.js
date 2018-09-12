@@ -6,7 +6,11 @@ const userSchema = new Schema({
    name: String,
    email: String,
    picture: String,
-   data: JSON
+   data: JSON,
+   token: {
+     accessToken: String,
+     refreshToken: String
+   }
  });
 
 mongoose.model('drive-users', userSchema)
