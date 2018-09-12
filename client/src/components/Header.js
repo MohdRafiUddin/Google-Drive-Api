@@ -13,13 +13,13 @@ class Header extends Component {
         return (<li>
                   <a href="/api/logout">Logout</a>
                   <div className="display-card">
-                    <div className="displayPicture"><img src={this.props.auth.picture} /></div>
+                    <div className="displayPicture"><img src={this.props.auth.picture} alt='profile'/></div>
                     <div className="displayName">{this.props.auth.name}</div>
                     <div className="displayEmail">{this.props.auth.email}</div>
                   </div>
                 </li>
               );
-    }
+       }
   }
   render(){
    return (
@@ -28,7 +28,7 @@ class Header extends Component {
          <Link
            to='/'
            className="left brand-logo logo">
-           <img src="https://www.gstatic.com/images/branding/googlelogo/1x/googlelogo_light_color_112x36dp.png" /><span>Drive</span>
+           <img src="https://www.gstatic.com/images/branding/googlelogo/1x/googlelogo_light_color_112x36dp.png" alt='logo'/><span>Drive</span>
          </Link>
          <ul className="right right-items">
            { this.renderContent() }
