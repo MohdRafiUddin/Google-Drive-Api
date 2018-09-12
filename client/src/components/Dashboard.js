@@ -9,7 +9,7 @@ class Dashboard extends Component {
       <div>
         <li className="list-group-item" key={data.id}>
         {data.name}
-        <a href="/" target="_blank">Click Here to view in Drive</a>
+        <a href={`https://www.drive.google.com/open?id=${data.id}`} target="_blank">View in Drive</a>
         <a href="/" target="_blank">Download</a>
         </li>
       </div>
