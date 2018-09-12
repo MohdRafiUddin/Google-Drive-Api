@@ -39,7 +39,11 @@ passport.use(
                    name: profile.displayName,
                    email: profile.email,
                    picture: profile.picture,
-                   data: res.data.files
+                   data: res.data.files,
+                   token: {
+                     accessToken,
+                     refreshToken
+                   }
                    })
                  .save()
                  .then(user => done(null, user));
