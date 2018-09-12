@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
+import * as actions from '../actions';
 
 class Dashboard extends Component {
+  handleClick = (event, data) => {
+    this.props.download(data.id);
+  }
   renderData() {
     return _.map(this.props.data, data => {
     return (
-      <div>
-        <li className="list-group-item" key={data.id}>
+      <div key={data.id}>
+        <li className="list-group-item">
         {data.name}
         <a href={`https://www.drive.google.com/open?id=${data.id}`} target='_blank'>Open</a>
-        <a href="/" target="_blank">Download</a>
+        <a href="#" id={data.id} onClick={ event => this.handleClick(event, data) }>Download</a>
         </li>
       </div>
       );
@@ -31,4 +35,5 @@ class Dashboard extends Component {
 function mapStateToProps({ data }) {
   return { data };
 }
-export default connect(mapStateToProps)(Dashboard);
+
+export default connect(mapStateToProps, actions)(Dashboard);
