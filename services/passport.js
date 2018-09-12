@@ -21,7 +21,7 @@ passport.use(
        clientID: Keys.DRIVE_CLIENT_ID,
        clientSecret: Keys.DRIVE_CLIENT_SECRET,
        callbackURL: '/auth/google-drive/callback',
-       scope : 'https://www.googleapis.com/auth/drive.metadata',
+       scope : Keys.SCOPE,
        access_type: 'offline'
       },
       (accessToken, refreshToken, profile, done) => {
@@ -37,6 +37,8 @@ passport.use(
                  new User({
                    driveID : profile.id,
                    name: profile.displayName,
+                   email: profile.email,
+                   picture: profile.picture,
                    data: res.data.files
                    })
                  .save()
