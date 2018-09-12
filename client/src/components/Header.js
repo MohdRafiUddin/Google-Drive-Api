@@ -12,12 +12,15 @@ class Header extends Component {
       default:
         return (<li>
                   <a href="/api/logout">Logout</a>
-                  <div className="displayName">{this.props.auth.name}</div>
+                  <div className="display-card">
+                    <div className="displayPicture"><img src={this.props.auth.picture} /></div>
+                    <div className="displayName">{this.props.auth.name}</div>
+                    <div className="displayEmail">{this.props.auth.email}</div>
+                  </div>
                 </li>
               );
     }
   }
-
   render(){
    return (
      <nav>
