@@ -10,7 +10,11 @@ class Header extends Component {
       case false:
         return <li><a href="/auth/google-drive">Login With Google Drive</a></li>;
       default:
-        return <li><a href="/api/logout">Logout</a></li>;
+        return (<li>
+                  <a href="/api/logout">Logout</a>
+                  <div className="displayName">{this.props.auth.name}</div>
+                </li>
+              );
     }
   }
 
