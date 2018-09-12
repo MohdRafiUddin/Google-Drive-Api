@@ -14,7 +14,17 @@ module.exports = app => {
    );
 
   app.get('/api/current_user', (req, res) => {
+    if(req.user){
+    res.send({
+      data: req.user.data,
+      driveID: req.user.driveID,
+      email: req.user.email,
+      name: req.user.name,
+      picture: req.user.picture
+    });
+  }else{
     res.send(req.user);
+  }
   });
 
   app.get('/api/logout', (req, res) => {
