@@ -25,7 +25,6 @@ passport.use(
        access_type: 'offline'
       },
       (accessToken, refreshToken, profile, done) => {
-        console.log(accessToken);
              User.findOne({driveID : profile.id})
              .then(existingUser => {
                if(existingUser){
@@ -37,6 +36,7 @@ passport.use(
                   .then(res => {
                  new User({
                    driveID : profile.id,
+                   name: profile.displayName,
                    data: res.data.files
                    })
                  .save()
