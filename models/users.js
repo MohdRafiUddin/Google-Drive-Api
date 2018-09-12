@@ -4,6 +4,8 @@ const {Schema} = mongoose;
 const userSchema = new Schema({
    driveID: String,
    name: String,
+   email: String,
+   picture: String,
    data: JSON
  });
 
