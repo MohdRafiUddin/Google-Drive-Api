@@ -27,10 +27,16 @@ nav {
   text-decoration: none;
   font-size: 22px;
   font-weight: lighter;
-  margin-right: 10px;
+  text-align: center;
 }
 .right-items li a:hover {
   color: gray;
+}
+.displayName {
+  font-size: 28px;
+  font-weight: 400;
+  color: black;
+  margin-right: 10px;
 }
 .loader{
   margin-top: 15px;
