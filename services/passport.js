@@ -3,7 +3,6 @@ const GoogleDriveStrategy = require('passport-google-drive').Strategy;
 const mongoose = require('mongoose');
 const Keys = require('../config/keys.js');
 const User = mongoose.model('drive-users');
-const prettyjson = require('prettyjson');
 const axios = require('axios');
 
 passport.serializeUser( (user, done) => {
