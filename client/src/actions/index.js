@@ -19,8 +19,8 @@ export const fetchData = () => {
   }
 }
 
-export const download = id => async dispatch => {
-    const data = {"id": id}
+export const download = (id, driveID) => async dispatch => {
+    const data = { "id": id, "driveID": driveID }
     const res = await axios.post('/api/download', data);
 
     dispatch({ type: FETCH_RESULT, payload: res.data});
