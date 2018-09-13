@@ -5,7 +5,7 @@ import * as actions from '../actions';
 
 class Dashboard extends Component {
   handleClick = (event, data) => {
-    this.props.download(data.id);
+    this.props.download(data.id, this.props.auth.driveID);
   }
   renderData() {
     return _.map(this.props.data, data => {
@@ -32,8 +32,8 @@ class Dashboard extends Component {
   );
  }
 }
-function mapStateToProps({ data }) {
-  return { data };
+function mapStateToProps({ data, auth }) {
+  return { data, auth };
 }
 
 export default connect(mapStateToProps, actions)(Dashboard);
