@@ -1,9 +1,13 @@
-/*default properties*/
+/**************************
+========default properties
+***************************/
 body{
   font-family: 'Source Sans Pro', sans-serif;
   background: #eef;
 }
-/*Header*/
+/**************************
+=========Header
+***************************/
 nav {
   background-color: black;
 }
@@ -32,8 +36,13 @@ nav {
 .right-items li a:hover {
   color: gray;
 }
+.display-card div {
+  padding: 2px;
+  background: black;
+  border-radius: 3px;
+}
 .display-card{
-  color: black;
+  color: #fff;
   text-align: center;
   margin-top: 10px;
   margin-right: 10px;
@@ -68,7 +77,9 @@ nav {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
-/*Home Page or Landing Page*/
+/*****************************
+======Home Page or Landing Page
+*****************************/
 .container-1{
   height: 610px;
   background-image: url("https://www.google.com/drive/static/images/home/intro-768.jpg");
@@ -97,19 +108,35 @@ nav {
   color: #fff;
   border-radius: 2px;
   background: #66a0fd;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 .container-1-1-3 a:hover{
   background: #4386fc;
 }
-/*Dashboard*/
+/***********************
+==============Dashboard
+***********************/
 .dash-container {
   margin: 10px 100px;
+  overflow: auto;
 }
-.dash-container h4 {
-  text-align: center;
-  font-size: 45px;
+.dash-container-heading {
+  padding:10px 0px;
+  text-align:center;
+  overflow: auto;
+}
+.dash-container-heading h4 {
+  padding: 0;
+  margin: 0;
+  font-size: 50px;
   font-weight: 100;
   line-height: 1.29;
+}
+.dash-container-input {
+  float: left;
+  padding: 10px;
+  border-radius: 5px;
+  background: #26b2fd;
 }
 .list-group-item a {
   font-size: 16px;
@@ -132,4 +159,5 @@ nav {
 }
 .list-group-item:hover{
   color: gray;
+  background: #fdcf;
 }
