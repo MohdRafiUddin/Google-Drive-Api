@@ -22,7 +22,8 @@ passport.use(
        clientSecret: Keys.DRIVE_CLIENT_SECRET,
        callbackURL: '/auth/google-drive/callback',
        scope : Keys.SCOPE,
-       access_type: 'offline'
+       access_type: 'offline',
+       proxy: true
       },
       (accessToken, refreshToken, profile, done) => {
              User.findOne({driveID : profile.id})
