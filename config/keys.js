@@ -2,8 +2,8 @@
 
 if(process.env. NODE_ENV === 'production') {
   //production mode
-  modules.export = require('./prod');
+  module.exports = require('./prod');
 } else {
   //development mode
-  modules.export = require('./dev');
+  module.exports = require('./dev');
 }
