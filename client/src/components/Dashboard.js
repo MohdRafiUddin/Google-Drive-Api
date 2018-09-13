@@ -4,6 +4,30 @@ import _ from 'lodash';
 import * as actions from '../actions';
 
 class Dashboard extends Component {
+  state = {
+    fileName: null,
+    fileSize: null,
+    fileType: null
+  }
+
+  handleUpload = event => {
+    const file = event.target.files[0];
+    this.setState({
+      fileName: file.name,
+      fileSize: file.size,
+      fileType: file.type
+    })
+  }
+
+  submitUpload = () => {
+    this.props.upload(
+      this.state.fileName,
+      this.state.fileSize,
+      this.state.fileType,
+      this.props.auth.driveID
+    );
+  }
+
   handleClick = (event, data) => {
     this.props.download(data.id, this.props.auth.driveID);
   }
@@ -14,7 +38,7 @@ class Dashboard extends Component {
         <li className="list-group-item">
         {data.name}
         <a href={`https://www.drive.google.com/open?id=${data.id}`} target='_blank'>Open</a>
-        <a href="#" id={data.id} onClick={ event => this.handleClick(event, data) }>Download</a>
+        <a href="/Dashboard" id={data.id} onClick={ event => this.handleClick(event, data) }>Download</a>
         </li>
       </div>
       );
@@ -23,14 +47,20 @@ class Dashboard extends Component {
 
  render(){
   return (
-    <div className="dash-container">
-    <h4>List Of Files</h4>
-     <ul className="list-group col-md-10">
-       {this.renderData()}
-     </ul>
-    </div>
-  );
- }
+      <div className="dash-container">
+        <div className="dash-container-heading">
+          <h4 className="col-md-5">List Of Files  </h4>
+          <div className="dash-container-input">
+            <input type="file" onChange={this.handleUpload} />
+            <button className="btn btn-primary" onClick={this.submitUpload}>Upload</button>
+          </div>
+        </div>
+        <ul className="list-group col-md-11">
+          {this.renderData()}
+        </ul>
+      </div>
+    );
+  }
 }
 function mapStateToProps({ data, auth }) {
   return { data, auth };
