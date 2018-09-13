@@ -8,7 +8,7 @@ class Header extends Component {
       case null:
         return <li><div className="loader"></div></li>;
       case false:
-        return <li><a href="/auth/google-drive">Login With Google Drive</a></li>;
+        return <li><a href="/auth/google-drive">Login With Google </a></li>;
       default:
         return (<li>
                   <a href="/api/logout">Logout</a>
