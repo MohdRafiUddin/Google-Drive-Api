@@ -44,10 +44,9 @@ class Dashboard extends Component {
       );
     });
   }
-
- render(){
-  return (
-      <div className="dash-container">
+  renderContent() {
+    if(this.props.auth) {
+      return (
         <div className="dash-container-heading">
           <h4 className="col-md-5">List Of Files  </h4>
           <div className="dash-container-input">
@@ -55,6 +54,16 @@ class Dashboard extends Component {
             <button className="btn btn-primary" onClick={this.submitUpload}>Upload</button>
           </div>
         </div>
+      );
+    } else {
+      return <h1 style={{textAlign:'center'}}>Login Please!!!</h1>
+    }
+  }
+
+ render(){
+  return (
+      <div className="dash-container">
+       {this.renderContent()}
         <ul className="list-group col-md-11">
           {this.renderData()}
         </ul>
