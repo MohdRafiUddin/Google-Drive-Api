@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const {Schema} = mongoose;
 
+//Defining Schema of users Model
 const userSchema = new Schema({
    driveID: String,
    name: String,

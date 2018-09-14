@@ -1,18 +1,19 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
+
 require('./models/users');
 require('./services/passport');
+
 const keys = require('./config/keys');
 
 mongoose.connect(keys.MONGOOSE_URI);
 
 app = express();
 
-//app.use(morgan('combined'));
+//Middlewares
 app.use(bodyParser.json({ type: '*/*' }));
 app.use(
    cookieSession({
@@ -23,6 +24,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+//Routes
 require('./routes/authRoutes')(app);
 require('./routes/downRoutes')(app);
 require('./routes/uploadRoutes')(app);
@@ -37,5 +39,6 @@ if(process.env.NODE_ENV === 'production'){
   });
 }
 
+//Fining PORT Based on Env(Development or Production)
 const PORT = process.env.PORT || 5000;
 app.listen(PORT);
