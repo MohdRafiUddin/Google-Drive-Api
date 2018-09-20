@@ -31,17 +31,34 @@ class Dashboard extends Component {
   handleClick = (event, data) => {
     this.props.download(data.id, this.props.auth.driveID);
   }
-  renderData() {
+  renderFolders() {
     return _.map(this.props.data, data => {
-    return (
-      <div key={data.id}>
-        <li className="list-group-item">
-        {data.name}
-        <a href={`https://www.drive.google.com/open?id=${data.id}`} target='_blank'>Open</a>
-        <a href="/Dashboard" id={data.id} onClick={ event => this.handleClick(event, data) }>Download</a>
-        </li>
-      </div>
-      );
+      if(data.mimeType === "application/vnd.google-apps.folder"){
+        console.log(data);
+       return (
+        <div key={data.id}>
+          <li className="list-group-item">
+           <img src="https://cdn0.iconfinder.com/data/icons/iconico-3/1024/63.png" height="30px" width="35px" />{data.name}
+           <a href={`https://www.drive.google.com/open?id=${data.id}`} target='_blank'>Open Folder</a>
+          </li>
+        </div>
+       );
+      }
+    });
+  }
+  renderFiles() {
+    return _.map(this.props.data, data => {
+      if(data.mimeType !== "application/vnd.google-apps.folder"){
+       return (
+        <div key={data.id}>
+          <li className="list-group-item">
+           <img src="https://procesdoen.nl/wp-content/uploads/text61.png" height="30px" width="35px" /> {data.name}
+           <a href={`https://www.drive.google.com/open?id=${data.id}`} target='_blank'>Open File</a>
+           <a href="/Dashboard" id={data.id} onClick={ event => this.handleClick(event, data) }>Download</a>
+          </li>
+        </div>
+       );
+      }
     });
   }
   renderContent() {
@@ -64,9 +81,16 @@ class Dashboard extends Component {
   return (
       <div className="dash-container">
        {this.renderContent()}
-        <ul className="list-group col-md-11">
-          {this.renderData()}
-        </ul>
+         <div>
+           <ul className="list-group col-md-11 gap">
+            {this.renderFolders()}
+          </ul>
+         </div>
+         <div>
+          <ul className="list-group col-md-11 gap">
+            {this.renderFiles()}
+           </ul>
+         </div>
       </div>
     );
   }
