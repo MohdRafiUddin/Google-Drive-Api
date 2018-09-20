@@ -4,7 +4,7 @@ import { FETCH_DATA } from '../actions/types.js';
 export default function(state= {}, action){
   switch(action.type){
     case FETCH_DATA:
-         return _.mapKeys(action.payload, 'id');
+         return _.mapKeys(action.payload.data, 'id');
     default:
          return state;
   }
