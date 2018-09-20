@@ -10,8 +10,8 @@ export const fetchUser = () => async dispatch => {
     }
 
 export const fetchData = () => async dispatch => {
-    const res = await axios.get('api/current_user');
-    dispatch({ type: FETCH_DATA, payload: res.data.data})
+    const res = await axios.get('api/current_user/data');
+    dispatch({ type: FETCH_DATA, payload: res.data})
   }
 
 export const download = (id, driveID) => async dispatch => {
