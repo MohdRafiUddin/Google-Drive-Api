@@ -14,4 +14,4 @@ const userSchema = new Schema({
    }
  });
 
-mongoose.model('drive-users', userSchema)
+mongoose.model('drive-users', userSchema);
