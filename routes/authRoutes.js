@@ -4,7 +4,7 @@ const passport = require('passport');
 module.exports = app => {
   app.get(
     '/auth/google-drive',
-     passport.authenticate('google-drive')
+     passport.authenticate('google-drive',{ accessType: 'offline', approvalPrompt: 'force' }),
    );
 
   app.get(
